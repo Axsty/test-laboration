@@ -1,10 +1,10 @@
-package service;
+package se.iths.axel.testlaboration.service;
 
-import component.AccountComponent;
-import exceptions.InsufficientFundsException;
-import exceptions.InvalidAmountException;
-import exceptions.MaxWithdrawExceededException;
 import org.springframework.stereotype.Service;
+import se.iths.axel.testlaboration.component.AccountComponent;
+import se.iths.axel.testlaboration.exceptions.InsufficientFundsException;
+import se.iths.axel.testlaboration.exceptions.InvalidAmountException;
+import se.iths.axel.testlaboration.exceptions.MaxWithdrawExceededException;
 
 @Service
 public class ATMService {
@@ -33,8 +33,6 @@ public class ATMService {
     }
 
     public void deposit(int sum) {
-        accountComponent.getBalance();
-
         if (sum <= 0) {
             throw new InvalidAmountException("Invalid amount");
         }

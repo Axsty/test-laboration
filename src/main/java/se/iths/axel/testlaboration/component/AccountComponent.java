@@ -1,4 +1,4 @@
-package component;
+package se.iths.axel.testlaboration.component;
 
 import org.springframework.stereotype.Component;
 

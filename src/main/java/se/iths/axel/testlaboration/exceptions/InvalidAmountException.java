@@ -1,4 +1,4 @@
-package exceptions;
+package se.iths.axel.testlaboration.exceptions;
 
 public class InvalidAmountException extends RuntimeException {
 

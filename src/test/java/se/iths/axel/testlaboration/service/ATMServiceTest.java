@@ -1,14 +1,14 @@
-package service;
+package se.iths.axel.testlaboration.service;
 
-import component.AccountComponent;
-import exceptions.InsufficientFundsException;
-import exceptions.InvalidAmountException;
-import exceptions.MaxWithdrawExceededException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import se.iths.axel.testlaboration.component.AccountComponent;
+import se.iths.axel.testlaboration.exceptions.InsufficientFundsException;
+import se.iths.axel.testlaboration.exceptions.InvalidAmountException;
+import se.iths.axel.testlaboration.exceptions.MaxWithdrawExceededException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -26,10 +26,9 @@ public class ATMServiceTest {
 
     @Test
     public void depositTest() {
-        when(accountComponent.getBalance()).thenReturn(0, 500);
         atmService.deposit(500);
 
-        assertEquals(500, atmService.getBalance());
+        verify(accountComponent).deposit(500);
     }
 
     @Test
@@ -67,7 +66,7 @@ public class ATMServiceTest {
 
     @Test
     public void insufficientFundsExceptionTest() {
-        int balance = 0;
+        when(accountComponent.getBalance()).thenReturn(0);
 
         assertThrows(InsufficientFundsException.class, () -> {
             atmService.withdraw(500);

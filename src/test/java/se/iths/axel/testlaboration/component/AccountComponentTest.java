@@ -1,4 +1,4 @@
-package component;
+package se.iths.axel.testlaboration.component;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
