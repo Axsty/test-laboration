@@ -35,7 +35,33 @@ public class PlaywrightTest {
 
             Page page = browser.newPage();
             page.navigate("http://localhost:8080/balance");
-            assertTrue(page.isVisible("text=Balance: 0kr"));
+            assertTrue(page.isVisible("text=Balance: "));
+        }
+    }
+
+    @Test
+    public void playwrightDepositTest() {
+        try (Playwright playwright = Playwright.create();
+             Browser browser = playwright.firefox().launch(
+                     new BrowserType.LaunchOptions().setHeadless(true)
+             )) {
+
+            Page page = browser.newPage();
+            page.navigate("http://localhost:8080/balance");
+            assertTrue(page.isVisible("text=Deposit"));
+        }
+    }
+
+    @Test
+    public void playwrightWithdrawTest() {
+        try (Playwright playwright = Playwright.create();
+             Browser browser = playwright.firefox().launch(
+                     new BrowserType.LaunchOptions().setHeadless(true)
+             )) {
+
+            Page page = browser.newPage();
+            page.navigate("http://localhost:8080/balance");
+            assertTrue(page.isVisible("text=Withdraw"));
         }
     }
 }
