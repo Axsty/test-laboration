@@ -4,6 +4,16 @@
     <title>ATM</title>
 </head>
 <body>
-<h1 th:text="'Balance: ' + ${balance} + 'kr'">Standard text</h1>
+<h1 th:text="'Balance: ' + ${balance} + ' SEK'"></h1>
+<hr>
+<form method="post" th:action="@{/withdraw}">
+    <h3>Withdraw</h3> <label>Amount:</label> <input type="number" name="amount">
+    <button type="submit">Withdraw</button>
+</form>
+<hr>
+<form method="post" th:action="@{/deposit}">
+    <h3>Deposit</h3> <label>Amount:</label> <input type="number" name="amount">
+    <button type="submit">Deposit</button>
+</form>
 </body>
 </html>
